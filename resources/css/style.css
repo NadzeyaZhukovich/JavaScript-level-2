@@ -1,0 +1,86 @@
+/* --------------------------------- */
+/* BASIC SETUP */
+/* --------------------------------- */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body{
+    color: #555;
+    font-family: 'Raleway', 'Arial', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.5;
+    background-color: #fff;
+}
+
+/* --------------------------------- */
+/*  REUSABLE  COMPONENTS */
+/* --------------------------------- */
+
+.row{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+section{
+    padding: 60px 0;
+}
+
+/* ----- HEADINGS ----- */
+
+h1{
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 200%;
+    font-weight: 300;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+}
+
+
+/* ----- BUTTON ----- */
+
+.cartButton{
+    background: transparent;
+    border: none;
+    float: right;
+    padding: 5px;
+}
+
+.cartButton:hover,
+.cartButton:active{
+    /* border-bottom: 1px solid #e67e22; */
+    background-color: rgb(171, 171, 171);
+}
+
+/* ----- HEADER ----- */
+
+header{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(bg-img/bg-img:header-bg-img.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+nav{
+    padding: 60px 0;
+}
+
+.logo{
+    width: 60px;
+    height: auto;
+}
+
+.welcomeBox{
+    position: absolute;
+    width: 1140px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
