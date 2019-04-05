@@ -142,8 +142,9 @@ nav{
 }
 
 .goodCard{
+    display: none;
     width: 250px;
-    height: 270px;
+    height: 300px;
     border: 1 px solid #555;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -157,7 +158,7 @@ nav{
     height: auto;
 }
 
-.goodName{
+.goodTitle{
     font-size: 130%;
     text-transform: capitalize;
     font-weight: 400;
