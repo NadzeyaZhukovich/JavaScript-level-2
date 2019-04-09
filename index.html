@@ -12,11 +12,37 @@
     <link rel="stylesheet" type="text/css" media="screen" href="vendors/css/5cols.css">
     <link rel="stylesheet" type="text/css" media="screen" href="vendors/css/6cols.css">
     <link rel="stylesheet" type="text/css" media="screen" href="vendors/css/col.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="recources/css/style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="resources/css/style.css">
 </head>
 <body>
-   
-    <script src="recources/js/app.js"></script>
+     <header>
+        <nav>
+            <div class="row">
+                <img src="resources/img/logo.svg" alt="eShope logo" class="logo">
+                <button class="cartButton" type="button">
+                    <img src="resources/img/shopping-cart.png" alt="basket" class="basket">
+                </button>
+            </div>
+        </nav>
+        <aside class="welcomeBox">
+            <h1>Professional gardening <br> and <br> landscaping</h1>
+        </aside>
+    </header>
+
+    <section class="goods-list clearfix">
+        <div class="row">
+            <h2>Goods list</h2>
+        </div>
+        <div id="goods" class="row box">
+            <aside id="goodCard" class="goodCard col span-1-of-4">
+                <img alt="Good img" class="goodImg">
+                <p class="goodTitle"></p>
+                <p> <span class="goodPrice"></span>	&#36;</p>
+                <button class="addButton" type="button">Add</button>
+            </aside>
+        </div>
+    </section>
+    <script src="resources/js/app.js"></script>
     
 </body>
 </html>

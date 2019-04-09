@@ -1,0 +1,165 @@
+/* --------------------------------- */
+/* BASIC SETUP */
+/* --------------------------------- */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body{
+    color: #555;
+    font-family: 'Raleway', 'Arial', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.5;
+    background-color: #fff;
+}
+
+.clearfix{zoom:1}
+.clearfix:after{
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+/* --------------------------------- */
+/*  REUSABLE  COMPONENTS */
+/* --------------------------------- */
+
+.row{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+section{
+    padding: 60px 0;
+}
+
+/* ----- HEADINGS ----- */
+
+h1{
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 200%;
+    font-weight: 300;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+}
+
+h2{
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 180%;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+h2:after{
+    display: block;
+    height: 2px;
+    background-color: #e67e22;
+    content: " ";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.box{
+    display: flex;
+    justify-content: space-around;
+}
+
+/* ----- BUTTON ----- */
+
+.cartButton{
+    background: transparent;
+    border: none;
+    float: right;
+    padding: 5px;
+    transition: background-color 0.2s;
+}
+
+.cartButton:hover,
+.cartButton:active{
+    background-color: rgb(171, 171, 171);
+}
+
+.addButton{
+    margin: 10px 0 5px 0;
+    padding: 5px;
+    width: 70px;
+    border: 1px solid #e67e22;
+    border-radius: 50px;
+    color: #e67e22;
+    font-size: 80%;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.addButton:hover,
+.addButton:active{
+    background-color: #e67e22;
+    color: #fff;
+}
+
+/* ----- HEADER ----- */
+
+header{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(bg-img/bg-img:header-bg-img.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+nav{
+    padding: 60px 0;
+}
+
+.logo{
+    width: 60px;
+    height: auto;
+}
+
+.welcomeBox{
+    position: absolute;
+    width: 1140px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
+/* -----    GOODS LIST ----- */
+
+.goods-list{
+    background-color: #fefaf7;
+}
+
+.goodCard{
+    display: none;
+    width: 250px;
+    height: 300px;
+    border: 1 px solid #555;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.goodImg{
+    margin-bottom: 5px;
+    width: 250px;
+    height: auto;
+}
+
+.goodTitle{
+    font-size: 130%;
+    text-transform: capitalize;
+    font-weight: 400;
+}
