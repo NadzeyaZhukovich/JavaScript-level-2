@@ -5,6 +5,14 @@ class GoodsList{
         this.section = section;
         this.goodsItems = goodsItems;
     }
+
+    sum(){
+        let sum = 0;
+        this.goodsItems.forEach(item => {
+            sum += item.price;
+        })
+        return sum;
+    }
     
     render(){
         this.goodsItems.forEach(item => {
