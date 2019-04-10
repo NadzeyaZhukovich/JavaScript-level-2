@@ -7,10 +7,10 @@ const $basketWindow = document.getElementById('basketWindow');
 const $basketButton = document.getElementById('basketButton');
 
 const GOODS = [
-    { title: 'red rose', price: 100, picture: 'resources/img/rose-red.jpg' },
-    { title: 'green rose', price: 120, picture: 'resources/img/rose-green.jpg' },
-    { title: 'yellow rose', price: 130, picture: 'resources/img/rose-yellow.jpg' },
-    { title: 'pink rose', price: 140, picture: 'resources/img/rose-pink.jpg' }
+    { title: 'iris', price: 100, picture: 'resources/img/iris.jpg' },
+    { title: 'poppy', price: 120, picture: 'resources/img/poppy.jpg' },
+    { title: 'sunflower', price: 130, picture: 'resources/img/sunflower.jpg' },
+    { title: 'chamomile', price: 140, picture: 'resources/img/chamomile.jpg' }
 ];
 
 function convert(list) {
