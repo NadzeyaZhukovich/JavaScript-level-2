@@ -1,7 +1,10 @@
 import GoodsItem from './view/goodsItem.js';
 import GoodsList from  './view/goodsList.js';
+import Basket from './logics/basket.js';
 
 const $goods = document.getElementById('goods');
+const $basketWindow = document.getElementById('basketWindow');
+const $basketButton = document.getElementById('basketButton');
 
 const GOODS = [
     { title: 'red rose', price: 100, picture: 'resources/img/rose-red.jpg' },
