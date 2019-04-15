@@ -1,5 +1,6 @@
 class GoodsItem{
-    constructor(title, price, picture){
+    constructor(id, title, price, picture){
+      this.id = id;
       this.title = title;
       this.price = price;
       this.picture = picture;
@@ -13,7 +14,8 @@ class GoodsItem{
     render(){
       let card = this.cardTemplateElement().cloneNode(true);
       card.removeAttribute('id');
-      
+      card.setAttribute('id', `${this.id}`);
+
       card.querySelector('.goodImg').src = this.picture;
       card.querySelector('.goodTitle').textContent = this.title;
       card.querySelector('.goodPrice').textContent = this.price;

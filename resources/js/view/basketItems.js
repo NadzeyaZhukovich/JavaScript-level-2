@@ -1,9 +1,0 @@
-class BasketItems{
-    constructor(){
-
-    }
-
-    render(){
-        
-    }
-}
