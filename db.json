@@ -1,0 +1,52 @@
+{
+    "goods": [
+      {
+        "id": 1,
+        "title": "iris",
+        "price": "100",
+        "picture": "resources/img/iris.jpg"
+      },
+      {
+        "id": 1,
+        "title": "poppy",
+        "price": "120",
+        "picture": "resources/img/poppy.jpg"
+      },
+      {
+        "id": 1,
+        "title": "sunflower",
+        "price": "130",
+        "picture": "resources/img/sunflower.jpg"
+      },
+      {
+        "id": 1,
+        "title": "chamomile",
+        "price": "140",
+        "picture": "resources/img/chamomile.jpg"
+      },
+      {
+        "id": 1,
+        "title": "sunflower",
+        "price": "130",
+        "picture": "resources/img/sunflower.jpg"
+      },
+      {
+        "id": 1,
+        "title": "chamomile",
+        "price": "140",
+        "picture": "resources/img/chamomile.jpg"
+      },
+      {
+        "id": 1,
+        "title": "sunflower",
+        "price": "130",
+        "picture": "resources/img/sunflower.jpg"
+      },
+      {
+        "id": 1,
+        "title": "chamomile",
+        "price": "140",
+        "picture": "resources/img/chamomile.jpg"
+      }
+    ]
+}

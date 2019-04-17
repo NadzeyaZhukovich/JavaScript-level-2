@@ -12,13 +12,7 @@ const $addButtons = document.getElementsByClassName('addButton');
 
 const basket = new Basket();
 
-const GOODS = [
-    { id: 1, title: 'iris', price: 100, picture: 'resources/img/iris.jpg' },
-    { id: 2, title: 'poppy', price: 120, picture: 'resources/img/poppy.jpg' },
-    { id: 3, title: 'sunflower', price: 130, picture: 'resources/img/sunflower.jpg' },
-    { id: 4, title: 'chamomile', price: 140, picture: 'resources/img/chamomile.jpg' }
-];
-const GOOD_ITEMS = convert(GOODS);
+let goodsItems = [];
 
 function convert(list) {
   let convertedList = [];
@@ -28,10 +22,23 @@ function convert(list) {
   return convertedList; 
 }
 
-new GoodsList(
-  $goods, 
-  GOOD_ITEMS
-).render();
+function createUI(goodsItems) {
+  new GoodsList(
+    $goods, 
+    goodsItems
+  ).render();
+}
+
+function fetchAndDisplayGoods(url, convert, createUI){
+  fetch(url)
+    .then((response) => response.json())
+    .then(result => {
+      goodsItems = convert(result.goods);
+      createUI(goodsItems)
+    })
+}
+
+fetchAndDisplayGoods('../../db.json', convert, createUI);
 
 function isBasketWindowVisible(){
   if($basketWindow.style.display == 'block'){
@@ -54,7 +61,7 @@ for (let button of $addButtons){
     let parent = target.parentElement;
     let parentId = parent.id;
     
-    GOOD_ITEMS.forEach(element => {
+    goodsItems.forEach(element => {
       if(element.id == parentId){
         basket.addItem(new BasketItem(element.id, element.title, element.price, 1));
       } 
