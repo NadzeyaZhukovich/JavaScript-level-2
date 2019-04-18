@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Page Title</title>
+</head>
+<body>
+    <script>
+    
+    const url = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/catalogData.json';
+    class Product{
+        constructor(id, name, price){
+            this.id = id;
+            this.name = name;
+            this.price = price;
+        }
+
+        getInfo(){
+            return `id: ${this.id}, name: ${this.name}, price: ${this.price}`;
+        }
+    }
+
+    /**
+     * Get products from url.
+     * 
+     * resolve -> array of products
+     * reject -> error message
+     */
+    function fetchProducts(url){
+        return new Promise((resolve, reject) => {
+            let fakeData = Math.round(Math.random() * 100);
+
+            if(fakeData <= 20){
+                setTimeout(() => {
+                    reject('превышенно время ожидания');
+                }, 1000);
+            }else if(fakeData > 20 && fakeData <= 40){    
+                url += 'new-file-at-server';
+                reject(`Unknown file: ${url}`)
+            }else if(fakeData > 40){
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => data.map(item => new Product(item.id_product, item.product_name, item.price)))
+                    .then(products => resolve(products));
+            } 
+        })
+    }
+
+    fetchProducts(url)
+        .then(response => {
+            response.forEach(element => {
+                console.log(`Success: ${element.getInfo()}`);
+            });
+        })
+        .catch(error => console.log(`Error: ${error}`));
+
+    </script>
+</body>
+</html>
