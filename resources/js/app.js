@@ -6,9 +6,7 @@ import BasketList from './view/basketList.js';
 
 const $goods = document.getElementById('goods');
 const $basketWindow = document.getElementById('basketWindow');
-
 const $basketButton = document.getElementById('basketButton');
-const $addButtons = document.getElementsByClassName('addButton');
 
 const basket = new Basket();
 
@@ -23,10 +21,33 @@ function convert(list) {
 }
 
 function createUI(goodsItems) {
+  // add items from json to goods section
   new GoodsList(
     $goods, 
     goodsItems
   ).render();
+
+  // register listener for item's add button
+  const $addButtons = document.getElementsByClassName('addButton');
+  for (let button of $addButtons){
+    button.addEventListener('click', event => clickedOnAddButton(event));
+  }
+}
+
+function clickedOnAddButton(event) {
+  if(isBasketWindowVisible()){
+    hideBasketWindow();
+  }
+
+  let target = event.target;
+  let parent = target.parentElement;
+  let parentId = parent.id;
+  
+  goodsItems.forEach(element => {
+    if(element.id == parentId){
+      basket.addItem(new BasketItem(element.id, element.title, element.price, 1));
+    } 
+  })
 }
 
 function fetchAndDisplayGoods(url, convert, createUI){
@@ -51,24 +72,6 @@ function hideBasketWindow(){
   $basketWindow.style.display = 'none';
 }
 
-for (let button of $addButtons){
-  button.addEventListener('click', event => {
-    if(isBasketWindowVisible()){
-      hideBasketWindow();
-    }
-
-    let target = event.target;
-    let parent = target.parentElement;
-    let parentId = parent.id;
-    
-    goodsItems.forEach(element => {
-      if(element.id == parentId){
-        basket.addItem(new BasketItem(element.id, element.title, element.price, 1));
-      } 
-    })
-  });
-}
-
 $basketButton.addEventListener('click', event => {
   let basketItems = basket.results();
   
@@ -76,4 +79,4 @@ $basketButton.addEventListener('click', event => {
     $basketWindow,
     basketItems
   ).render();
-})
+});
