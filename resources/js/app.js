@@ -3,6 +3,7 @@ import GoodsList from  './view/goodsList.js';
 import Basket from './logics/basket.js';
 import BasketItem from './view/basketItem.js';
 import BasketList from './view/basketList.js';
+import GoodsItemsConverter from './logics/converters/goodsItemsConverter.js';
 
 const $goods = document.getElementById('goods');
 const $basketWindow = document.getElementById('basketWindow');
@@ -11,14 +12,6 @@ const $basketButton = document.getElementById('basketButton');
 const basket = new Basket();
 
 let goodsItems = [];
-
-function convert(list) {
-  let convertedList = [];
-  list.forEach(item => 
-    convertedList.push(new GoodsItem(item.id, item.title, item.price, item.picture))
-  );
-  return convertedList; 
-}
 
 function createUI(goodsItems) {
   // add items from json to goods section
@@ -59,7 +52,7 @@ function fetchAndDisplayGoods(url, convert, createUI){
     })
 }
 
-fetchAndDisplayGoods('../../db.json', convert, createUI);
+fetchAndDisplayGoods('../../db.json', GoodsItemsConverter.convert, createUI);
 
 function isBasketWindowVisible(){
   if($basketWindow.style.display == 'block'){
