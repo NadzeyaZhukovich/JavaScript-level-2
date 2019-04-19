@@ -14,7 +14,6 @@ class BasketList{
         this.basketItem.forEach(item => {
             if(item instanceof BasketItem){
                 this.section.appendChild(item.render());
-                this.section.style.display = 'block';
             }
         })
     }

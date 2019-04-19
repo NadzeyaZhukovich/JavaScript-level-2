@@ -4,12 +4,13 @@ import Basket from './logics/basket.js';
 import BasketItem from './view/basketItem.js';
 import BasketList from './view/basketList.js';
 import GoodsItemsConverter from './logics/converters/goodsItemsConverter.js';
+import BasketWindow from './view/basketWindow.js';
 
 const $goods = document.getElementById('goods');
-const $basketWindow = document.getElementById('basketWindow');
 const $basketButton = document.getElementById('basketButton');
 
 const basket = new Basket();
+const basketWindow = new BasketWindow(document.getElementById('basketWindow'));
 
 let goodsItems = [];
 
@@ -28,8 +29,8 @@ function createUI(goodsItems) {
 }
 
 function clickedOnAddButton(event) {
-  if(isBasketWindowVisible()){
-    hideBasketWindow();
+  if(basketWindow.isVisible()){
+    basketWindow.hide();
   }
 
   let target = event.target;
@@ -54,22 +55,13 @@ function fetchAndDisplayGoods(url, convert, createUI){
 
 fetchAndDisplayGoods('../../db.json', GoodsItemsConverter.convert, createUI);
 
-function isBasketWindowVisible(){
-  if($basketWindow.style.display == 'block'){
-    return true;
-  } 
-  return false;
-}
-
-function hideBasketWindow(){
-  $basketWindow.style.display = 'none';
-}
-
 $basketButton.addEventListener('click', event => {
   let basketItems = basket.results();
   
   new BasketList(
-    $basketWindow,
+    basketWindow.getContainer(),
     basketItems
   ).render();
+
+  basketWindow.show();
 });
