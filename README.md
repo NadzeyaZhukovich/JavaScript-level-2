@@ -1,6 +1,16 @@
-# JavaScript-level-2 course (GeekBrains)
+# [WIP] JavaScript level 2 course (GeekBrains)
+The **JavaSctipt level 2** course cover the following topics:
+
+* Object-Oriented Programming
+* Interaction with Server
+* Promises
+* Regular Expressions
+* Vue.js framework
+* Node.js framework
+* Testing
 
 ## Project Structure
+Current structure of the project. 
 * **resources** *(webpage source code and resources: images, css code, javasctipt code)*
     * **css** *(styles for the project with a folder for background images)*
         * **bg-img**
