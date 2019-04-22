@@ -27,3 +27,25 @@ Current structure of the project.
     * **regular-expressions**
 * **db.json** *(json file which emulate database from the server)*
 * **index.html** *(main html page of the application)*
+
+## Business logic classes
+The `GoodsItemsConverter` class allows to convert array of objects (from json file) to array of GoodsItems objects.
+```
+const arrayJSON = ...
+const goodsItems = GoodsItemsConverter.convert(arrayJSON);
+```
+
+The `Basket` class allows to store items in a basket . 
+```
+const basketItem1 = ...
+const basketItem2 = ...
+
+const basket = new Basket();
+basket.addItem(basketItem1);
+basket.addItem(basketItem2);
+basket.addItem(basketItem1);
+
+// return a new array of basketItem with amount of items 
+// when we are adding the same item twice, the amount of this item will be 2
+basket.results();
+```
