@@ -21,7 +21,6 @@ class GoodsList{
             }
         });
     }
-    
 }
 
 export default GoodsList;   

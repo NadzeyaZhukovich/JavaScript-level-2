@@ -1,27 +1,67 @@
 import GoodsItem from './view/goodsItem.js';
+import BasketItem from './view/basketItem.js';
 import GoodsList from  './view/goodsList.js';
+import BasketList from './view/basketList.js';
+import BasketWindow from './view/basketWindow.js';
 import Basket from './logics/basket.js';
+import GoodsItemsConverter from './logics/converters/goodsItemsConverter.js';
+
+const API_URI = '../../db.json';
 
 const $goods = document.getElementById('goods');
-const $basketWindow = document.getElementById('basketWindow');
 const $basketButton = document.getElementById('basketButton');
 
-const GOODS = [
-    { title: 'iris', price: 100, picture: 'resources/img/iris.jpg' },
-    { title: 'poppy', price: 120, picture: 'resources/img/poppy.jpg' },
-    { title: 'sunflower', price: 130, picture: 'resources/img/sunflower.jpg' },
-    { title: 'chamomile', price: 140, picture: 'resources/img/chamomile.jpg' }
-];
+const basket = new Basket();
+const basketWindow = new BasketWindow(document.getElementById('basketWindow'));
 
-function convert(list) {
-  let convertedList = [];
-  list.forEach(item => 
-    convertedList.push(new GoodsItem(item.title, item.price, item.picture))
-  );
-  return convertedList; 
+let goodsItems = [];
+
+function createUI(goodsItems) {
+  // add items from json to goods section
+  new GoodsList(
+    $goods, 
+    goodsItems
+  ).render();
+
+  // register listener for item's add button
+  const $addButtons = document.getElementsByClassName('addButton');
+  for (let button of $addButtons){
+    button.addEventListener('click', event => clickedOnAddButton(event));
+  }
 }
 
-new GoodsList(
-  $goods, 
-  convert(GOODS)
-).render();
+function clickedOnAddButton(event) {
+  if(basketWindow.isVisible()){
+    basketWindow.hide();
+  }
+
+  let target = event.target;
+  let parent = target.parentElement;
+  let parentId = parent.id;
+  
+  goodsItems.forEach(element => {
+    if(element.id == parentId){
+      basket.addItem(new BasketItem(element.id, element.title, element.price, 1));
+    } 
+  })
+}
+
+window.addEventListener('load', event => {
+  fetch(API_URI)
+    .then(response => response.json())
+    .then(result => {
+      goodsItems = GoodsItemsConverter.convert(result.goods);
+      createUI(goodsItems);
+    })
+});
+
+$basketButton.addEventListener('click', event => {
+  let basketItems = basket.results();
+  
+  new BasketList(
+    basketWindow.getContainer(),
+    basketItems
+  ).render();
+
+  basketWindow.show();
+});
